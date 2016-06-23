@@ -1,0 +1,23 @@
+{%  extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron">
+	<h1>Welcome to Social Wall&copy</h1>
+	<p>This Application uses a MVC framework.  It was built using Python, Pylot, and Bootstraps.</p>
+	<p><a class="btn btn-primary btn-lg" href="/sign_in" role="button">Sign In</a> <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a></p>
+</div>
+<div class="row" style="width: 80%; margin: auto;">
+	<div class="col-md-4">
+		<strong>Manage Users</strong>
+		<p>Adding, removing, and editing a user database.  Logging in and out and various user levels configured.</p>
+	</div>
+	<div class="col-md-4">
+		<strong>Leave Messages</strong>
+		<p>Users are able to leave messages on other users' wall.  You can also comment on messages.</p>
+	</div>
+	<div class="col-md-4">
+		<strong>Edit User Information</strong>
+		<p>Admins are able to edit all users, and have complete control over the management of users.</p>
+	</div>
+</div>
+{% endblock %}

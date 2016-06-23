@@ -1,0 +1,24 @@
+{%  extends "layout.html" %}
+{% block content %}
+<!-- <div class="panel panel-default"> -->
+	<form action="/users/sign_in_user" class="form-style" method="post">
+		<div class="panel-heading">Sign In</div>
+	  	<div class="panel-body">
+	  		<div class="form-group">
+		    	<div class="input-group">
+		    		<span class="input-group-addon" id="basic-addon1">Email</span>
+		    		<input type="text" class="form-control" name="email" placeholder="Username">
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<div class="input-group">
+		    		<span class="input-group-addon" id="basic-addon2">Password</span>
+		    		<input type="password" class="form-control" name="password" placeholder="Password">
+		    	</div>
+		    </div>
+			<button type="submit" class="btn btn-default">Submit</button>
+	 	</div>
+	</form>
+<!-- </div> -->
+<h5><a href="/register">Don't have an account? Register today.</a></h5>
+{% endblock %}

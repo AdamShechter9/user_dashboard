@@ -1,0 +1,112 @@
+* {
+  // font-family: monaco;
+
+}
+
+body {
+  background: -webkit-linear-gradient(-37.40535663140855deg, rgba(249,249,249,1) 0, rgba(109,109,109,1) 100%);
+  background: -moz-linear-gradient(127.40535663140855deg, rgba(249,249,249,1) 0, rgba(109,109,109,1) 100%);
+  background: linear-gradient(127.40535663140855deg, rgba(249,249,249,1) 0, rgba(109,109,109,1) 100%);
+  background-position: 50% 14%;
+}
+
+.header {
+	position: fixed;
+	top: 0px;
+	// left: 0px;
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid black;
+	padding-left: 2em;
+	padding-top: 1em;
+	height: auto;
+	background-color: #31B0D5;
+	overflow: visible;
+	z-index: 10;
+
+	.toptitle {
+		color: white;
+		margin-top: -9px;
+		margin-bottom: 20px;
+		text-shadow: 2px 2px 4px grey;
+		}
+
+	.headbtn {
+		margin-top: -13px;
+		height: 40px;
+		width: 100%;
+	}
+	.homeicon {
+		font-size: 1.5em;
+		}
+	.dashicon {
+		font-size: 1.5em;
+		}
+	
+}
+
+.container {
+	width: 100%;
+	padding-top: 5em;
+
+	.form-style {
+		width: 40%;
+		border: 1px solid lightgrey;
+		padding: 1em;
+		border-radius: 1em;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.inline-block {
+		display: inline-block;
+	}
+
+	.user-info {
+		border: 1px solid lightgrey;
+		padding: 1em;
+		border-radius: 1em;
+		margin-top: 1em;
+	}
+
+	.messagewall {
+		width: 60%;
+		margin: auto;
+	}
+
+	.message {
+		display: block;
+		border-radius: 1em;
+		border: 1px solid black;
+		padding: 1em;
+		width: 80%;
+		margin-bottom: 0.5em;
+		background-color: silver;
+	}	
+
+	.comment {
+		@extend .message;
+		margin: auto;
+		margin-left: 6em;
+		background-color: lightgrey;
+		margin-bottom: 1em;
+		}
+	.msgpost {
+		@extend .message;
+		background-color: lightgrey;
+		width: 80%;
+	}
+
+	.commentpost {
+		@extend .message;
+		margin-left: 0em;
+		background-color: lightgrey;
+		width: 100%;
+	}
+}
+
+
+
+.warning {
+	color: red;
+}

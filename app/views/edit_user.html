@@ -1,0 +1,57 @@
+{%  extends "layout.html" %}
+{% block content %}
+
+	{% if admin %}
+		<h3>Edit User {{ user['id'] }}</h3>
+	{% else %}
+		<h3>Edit My Profile</h3>
+	{% endif %}
+
+	<form action="/users/update_info" class="form-style" method="post" >
+		<h4>Edit Information</h4>
+		<input type="hidden" name="user_id" value="{{ user['id'] }}">
+		<div class="form-group">
+			<label for="">Email Address</label>
+			<input type="email" class="form-control" id="emailfield" name="email" value="{{ user['email'] }}">
+		</div>
+		<div class="form-group">
+			<label for="">First Name</label>
+			<input type="text" class="form-control" id="firstfield" name="firstname" value="{{ user['firstname'] }}">
+		</div>
+		<div class="form-group">
+			<label for="">Last Name</label>
+			<input type="text" class="form-control" id="lastfield" name="lastname" value="{{ user['lastname'] }}">
+		</div>
+	{% if admin %}
+		<div class="form-group">
+			<label for="">User Level</label>
+			<select name="user_level" id="">
+				<option value="1">Normal</option>
+				<option value="9">Admin</option>
+			</select>
+		</div>
+	{% endif %}
+		 <button type="submit" class="btn btn-default" name="infosubmit" value="True">Save</button>
+	</form>
+
+	<form action="/users/update_password" class="form-style" method="post">
+		<h4>Edit Password</h4>
+		<input type="hidden" name="user_id" value="{{ user['id'] }}">
+	    <div class="form-group">
+	    		<label for="">Password</label>
+	    		<input type="password" class="form-control" name="password" placeholder="Password">
+	    </div>
+	    <div class="form-group">
+	    		<label for="">Confirm Password</label>
+	    		<input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password">
+	    </div>
+	    <button type="submit" class="btn btn-default" name="passwordsubmit" value="True">Save</button>
+	</form>
+
+	<form action="/users/update_desc" class="form-style" style="width: 70%;" method="post">
+		<h3>Edit Description</h3>
+		<input type="hidden" name="user_id" value="{{ user['id'] }}">
+		<textarea class="form-control" rows="3" name="description" value="" >{{ user['description'] }}</textarea>
+		<button type="submit" class="btn btn-default" name="descriptionsubmit">Save</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,77 @@
+body {
+  background: -webkit-linear-gradient(-37.40536deg, #f9f9f9 0, #6d6d6d 100%);
+  background: -moz-linear-gradient(127.40536deg, #f9f9f9 0, #6d6d6d 100%);
+  background: linear-gradient(127.40536deg, #f9f9f9 0, #6d6d6d 100%);
+  background-position: 50% 14%; }
+
+.header {
+  position: fixed;
+  top: 0px;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding-left: 2em;
+  padding-top: 1em;
+  height: auto;
+  background-color: #31B0D5;
+  overflow: visible;
+  z-index: 10; }
+  .header .toptitle {
+    color: white;
+    margin-top: -9px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px grey; }
+  .header .headbtn {
+    margin-top: -13px;
+    height: 40px;
+    width: 100%; }
+  .header .homeicon {
+    font-size: 1.5em; }
+  .header .dashicon {
+    font-size: 1.5em; }
+
+.container {
+  width: 100%;
+  padding-top: 5em; }
+  .container .form-style {
+    width: 40%;
+    border: 1px solid lightgrey;
+    padding: 1em;
+    border-radius: 1em;
+    display: inline-block;
+    vertical-align: top; }
+  .container .inline-block {
+    display: inline-block; }
+  .container .user-info {
+    border: 1px solid lightgrey;
+    padding: 1em;
+    border-radius: 1em;
+    margin-top: 1em; }
+  .container .messagewall {
+    width: 60%;
+    margin: auto; }
+  .container .message, .container .comment, .container .msgpost, .container .commentpost {
+    display: block;
+    border-radius: 1em;
+    border: 1px solid black;
+    padding: 1em;
+    width: 80%;
+    margin-bottom: 0.5em;
+    background-color: silver; }
+  .container .comment {
+    margin: auto;
+    margin-left: 6em;
+    background-color: lightgrey;
+    margin-bottom: 1em; }
+  .container .msgpost {
+    background-color: lightgrey;
+    width: 80%; }
+  .container .commentpost {
+    margin-left: 0em;
+    background-color: lightgrey;
+    width: 100%; }
+
+.warning {
+  color: red; }
+
+/*# sourceMappingURL=styles.css.map */

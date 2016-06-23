@@ -1,0 +1,56 @@
+{%  extends "layout.html" %}
+{% block content %}
+	<h3 class="col-md-8">Manage Users</h3>
+{% if admin %}
+	<p class="col-md-4"><a href="/users/new"><button class="btn" type="button">Add New</button></a></p>
+{% endif %}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>email</th>
+				<th>Created At</th>
+				<th>Admin</th>
+			{% if admin %}
+				<th>Actions</th>
+			{% endif %}
+			</tr>
+		</thead>
+		<tbody>
+		{% for user in all_users %}
+			<tr>
+				<td>{{ user['id'] }}</td>
+				<td><a href="/users/show/{{ user['id'] }}">{{ user['firstname'] }} {{ user['lastname'] }}</a></td>
+				<td>{{ user['email'] }}</td>
+				<td>{{ user['created_at'] }}</td>
+				<td>{% if user['user_level'] == 9 %}Yes{% else %}No{% endif %}</td>
+			{% if admin %}
+				<td><a href="/users/edit/{{ user['id'] }}"><button class="btn btn-sm" type="button">Edit</button></a>
+				<form action="/users/delete" method="post" onsubmit="return confirm('Deleting user! Are you sure?')"><input type="hidden" name="id" value="{{ user['id'] }}"><button class="btn btn-sm" type="submit" style="margin-top:0.6em;">Remove</button></form></td>
+			{% endif %}
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	<hr>
+	<h4>LATEST POSTS</h4>
+	<div class="messagewall">
+	{% for message in all_messages %}
+		<div class="message">
+				<h5 class="usersays">{{ message['firstname'] }} {{ message['lastname'] }} posted to {{ message['firstnameto'] }} {{ message['lastnameto'] }}'s wall at {{ message['updated_at'] }}</h5>
+				<hr style="margin-bottom:5px;margin-top: 3px;">
+				<p>{{ message['contents'] }}</p>
+				<br><br>
+		{% for comment in all_comments %}
+			{% if comment['message_id'] ==  message['id'] %}
+				<div class="comment">
+					<h5 class="usersays">{{ comment['firstname'] }} {{ comment['lastname'] }} posted at {{ comment['updated_at'] }}</h5>
+					<p> {{ comment['contents'] }} </p>
+				</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+	{% endfor %}
+	</div>
+{% endblock %}

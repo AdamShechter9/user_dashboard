@@ -1,0 +1,62 @@
+<html>
+  <head>
+  	<title></title>
+  	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta name="description" content="">
+  	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Adam Shechter">
+    <link rel='stylesheet' type="text/css" href="/static/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css">
+    <link rel='stylesheet' type="text/css" href='/static/css/styles.css'>
+    <script type="text/javascript" src="/static/js/jquery-1.12.2.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+  </head>
+  
+  <body>
+		<div class="header">
+			<div class="row">
+				<div class="col-md-2">
+					<a href="/" style="color: black; text-decoration: none;"><h2 class="toptitle">SocialWall&copy</h2></a>
+				</div>
+				{% if not session['user'] %}
+					<div class="col-md-1">
+						<a href="/" class="btn headbtn btn-info" style="margin-top:-8px; width: 80px;" ><span class="glyphicon glyphicon-home homeicon" aria-hidden="true" id=""></span></a>
+					</div>
+					<div class="col-md-2">
+						<a href="/sign_in" class="btn headbtn btn-warning" style="margin-top:-8px;"><h5 style="margin-top:5px;">Sign In</h5></a>
+					</div>
+				{% elif session['user'] %}
+				<div class="col-md-2">
+        {% if admin %}
+					<a href="/dashboard/admin" class="btn headbtn btn-info" style="margin-top:-8px;"><span class="glyphicon glyphicon-dashboard dashicon" aria-hidden="true"></span>Dashboard</a>
+        {% else %}
+          <a href="/dashboard" class="btn headbtn btn-info" style="margin-top:-8px;"><span class="glyphicon glyphicon-dashboard dashicon" aria-hidden="true"></span>Dashboard</a>
+        {% endif %}
+				</div>
+				<div class="col-md-2">
+					<a href="/users/show/{{ session['user'] }}"><button type="button" class="btn headbtn btn-info" style="margin-top:-8px;"><h5 style="margin-top:5px;margin-bottom:5px;">Profile</h5></button></a>
+				</div>
+				<div class="col-md-2">
+						<h5><a href="/users/sign_out_user"><button type="button" class="btn headbtn btn-info" style="margin-top:-18px;">Sign Out- {{ session['name'] }}</button></a></h5>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+    <div class="container">
+	{% block content %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p class="warning">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+	</div> 
+  	<script type="text/javascript" src="/static/js/script.js"></script>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  </body>
+</html>
